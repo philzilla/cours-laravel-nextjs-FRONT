@@ -57,12 +57,11 @@ const Sports = () => {
                         <div className="mt-4 flex justify-between">
                           <div>
                             <h3 className="text-sm text-gray-700">
-                              <a >
-                                <span aria-hidden="true" className="absolute inset-0" />
                                 {sport.name}
-                              </a>
                             </h3>
-                            
+                            <p className="mt-1 text-sm text-gray-500">
+                            <a href={`http://localhost:3000/sports/edit/${sport.id}`}>Editer</a>
+                            </p>
                           </div>
                         </div>
                       </div>
