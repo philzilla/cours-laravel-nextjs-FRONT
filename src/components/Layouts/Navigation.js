@@ -45,6 +45,13 @@ const Navigation = ({ user }) => {
                                 Liste des sports
                             </NavLink>
                         </div>
+                        <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <NavLink
+                                href="/sports/ajouter"
+                                active={router.pathname === '/sports/ajouter'}>
+                                Ajouter un sport
+                            </NavLink>
+                        </div>
                     </div>
 
                     {/* Settings Dropdown */}
