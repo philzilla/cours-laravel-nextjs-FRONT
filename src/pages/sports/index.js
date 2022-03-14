@@ -2,9 +2,12 @@ import AppLayout from '@/components/Layouts/AppLayout'
 import Head from 'next/head'
 import axios from '@/lib/axios'
 import {useState, useEffect} from 'react'
+import { useRouter } from 'next/router'
 
 
 const Sports = () => {
+   // Route
+   const router = useRouter();
 
   // Hooks : useState, useEffect
   const [sports, setSports] = useState([]);
@@ -21,6 +24,19 @@ const Sports = () => {
         // console.log("axios :", res.data);
         setSports(res.data.data);
      });
+  }
+
+  // Supprimer un sport
+
+  const deleteSport = (sportID) => {
+    // console.log("l'id sport à supprimer est", sportID);
+    axios
+    .delete(`/api/sports/${sportID}`)
+    .then(res => {
+      router.push('/sports')
+    })
+
+
   }
 
   return (
@@ -61,6 +77,15 @@ const Sports = () => {
                             </h3>
                             <p className="mt-1 text-sm text-gray-500">
                             <a href={`http://localhost:3000/sports/edit/${sport.id}`}>Editer</a>
+                            </p>
+                            <p className="mt-1 text-sm text-gray-500">
+                            <button onClick={ 
+                              () => {
+                                  deleteSport(sport.id);
+                              }
+                            }
+                            >
+                              Supprimer</button>
                             </p>
                           </div>
                         </div>
