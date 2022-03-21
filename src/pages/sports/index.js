@@ -33,7 +33,7 @@ const Sports = () => {
     axios
     .delete(`/api/sports/${sportID}`)
     .then(res => {
-      router.push('/sports')
+      url()
     })
 
 
@@ -67,7 +67,7 @@ const Sports = () => {
                       <div key={sport.id} className="group relative">
                         <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                           <img
-                            src="https://img.freepik.com/photos-gratuite/close-up-shoes-femme-coureur-attachant-ses-chaussures-pour-exercice-jogging_1150-4203.jpg?size=626&ext=jpg"                            className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                            src={`http://localhost:8000/api/image/${sport.image}`}                            className="w-full h-full object-center object-cover lg:w-full lg:h-full"
                           />
                         </div>
                         <div className="mt-4 flex justify-between">
